@@ -20,7 +20,7 @@ feature "the signup process" do
     end
 
 
-    it "shows email on the homepage after signup"
+    it "shows email on the homepage after signup" do
       expect(page).to have_content(new_user1.email)
     end
 
@@ -84,5 +84,4 @@ feature "logging out" do
   it "redirect's to sign in page" do
     expect(current_path).to match(/^\/session\/new/)
   end
-
 end

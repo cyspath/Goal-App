@@ -8,6 +8,16 @@
 </head>
 <body>
 
+<%= flash[:errors] %>
+
+<% if logged_in? %>
+  Logged in as: <%= current_user.email %>
+  <br><%= button_to "Sign Out", session_url, method: :delete %>
+<% else %>
+  <br><%= link_to "Sign In", new_session_url %>
+  <br><%= link_to "Sign Up", new_user_url %>
+<% end %>
+
 <%= yield %>
 
 </body>
