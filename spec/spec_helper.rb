@@ -90,3 +90,31 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+def sign_up(user)
+  visit(new_user_url)
+  fill_in("Email", with: user.email)
+  fill_in("Password", with: "star_wars")
+  click_button("Sign Up!")
+end
+
+def sign_in(user)
+    visit(new_session_url)
+    fill_in("Email", with: user.email)
+    fill_in("Password", with: "star_wars")
+    click_button("Sign In!")
+end
+
+def become_pokemon_master
+  fill_in("Title", with: "Become a pokemon master")
+  fill_in("Description", with: "capture pikachu")
+  choose("Public")
+  click_button("Submit!")
+end
+
+def create_goal(title, description, status)
+  fill_in("Title", with: title)
+  fill_in("Description", with: description)
+  choose(status)
+  click_button("Submit!")
+end

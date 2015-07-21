@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
+  has_many :goals
+
   def ensure_session_token
     self.session_token ||= SecureRandom::urlsafe_base64
   end
@@ -35,6 +37,6 @@ class User < ActiveRecord::Base
       nil
     end
   end
-  
+
 
 end

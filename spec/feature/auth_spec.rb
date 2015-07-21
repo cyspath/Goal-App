@@ -13,7 +13,7 @@ feature "the signup process" do
     let(:new_user1) { build (:user)}
 
     before(:each) do
-      vist(new_user_url)
+      visit(new_user_url)
       fill_in("Email", with: new_user1.email)
       fill_in("Password", with: new_user1.password)
       click_button("Sign Up!")
@@ -33,7 +33,7 @@ feature "logging in" do
   let(:new_user2) { create (:user)}
 
   before(:each) do
-    vist(new_session_url)
+    visit(new_session_url)
     fill_in("Email", with: new_user2.email)
     fill_in("Password", with: new_user2.password)
     click_button("Sign In!")
@@ -69,7 +69,7 @@ feature "logging out" do
   end
 
   before(:each) do
-    vist(new_session_url)
+    visit(new_session_url)
     fill_in("Email", with: new_user3.email)
     fill_in("Password", with: new_user3.password)
     click_button("Sign In!")

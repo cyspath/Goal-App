@@ -1,0 +1,16 @@
+<h2>Welcome to <%= @user.email %>'s page!</h2>
+<%= link_to "Create Goal", new_goal_url %>
+
+<br><br><br><br>
+<b>Curent goals: <br><br></b>
+<% @user.goals.each do |goal| %>
+
+  <% if goal.private %>
+    <% if goal.author == current_user %>
+      <%= link_to goal.title, goal_url(goal) %> <%= button_to "Delete Goal", goal_url(goal), method: :delete %>
+    <% end %>
+  <% else %>
+    <%= link_to goal.title, goal_url(goal) %><%= button_to "Delete Goal", goal_url(goal), method: :delete %>
+  <% end %>
+  <br>
+<% end %>

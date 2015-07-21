@@ -1,0 +1,31 @@
+<% action = goal.persisted? ? goal_url(goal) : goals_url %>
+<% button_text = goal.persisted? ? "Update Goal!" : "Submit!" %>
+<% method = goal.persisted? ? "PATCH" : "POST" %>
+
+<form action="<%= action %>" method="POST" >
+  <%= auth_token %>
+  <%= method_type(method) %>
+
+  <label>Title
+  <input type="text"
+         name="goal[title]"
+         value="<%= goal.title %>"></label>
+
+   <label>Description
+   <input type="textarea"
+          name="goal[description]"
+          value="<%= goal.description %>"></label>
+
+  <% ["Private", "Public"].each do |status| %>
+    <label>
+      <% option = status == "Private" ? "true" : "false" %>
+      <input type="radio"
+             name="goal[private]"
+             value="<%= option %>"
+             <%= "checked" if goal.private == option %>>
+      <%= status %>
+    </label>
+  <% end %>
+
+  <input type="submit" value="<%= button_text %>">
+</form>

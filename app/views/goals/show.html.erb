@@ -1,0 +1,7 @@
+<h2><%= @goal.title %></h2>
+<p>This goal is <%= @goal.private ? "private" : "public" %></p>
+<p><%= @goal.description %></p>
+<%= button_to "Delete Goal", goal_url(@goal), method: :delete %>
+<br><br>
+
+<%= link_to "Back to all goals", user_url(@goal.author) %>
