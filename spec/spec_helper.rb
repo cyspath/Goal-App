@@ -118,3 +118,8 @@ def create_goal(title, description, status)
   choose(status)
   click_button("Submit!")
 end
+
+def create_comment(comment)
+  fill_in("Add Comment", with: comment)
+  click_button("Add Comment")
+end

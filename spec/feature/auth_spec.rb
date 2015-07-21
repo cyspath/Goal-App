@@ -40,7 +40,7 @@ feature "logging in" do
   end
 
   it "redirects to user's show page" do
-      expect(current_path).to match(/^\/users\/(\d)+/)
+    expect(current_path).to match(/^\/users\/(\d)+/)
   end
 
   it "shows email on the homepage after login" do
